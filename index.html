@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V&M AI Agency — Intelligent Solutions for Modern Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ════════════════════════════════════════════════════════════
+     META PIXEL  ·  Replace YOUR_PIXEL_ID with your real Pixel ID
+     Get it at: business.facebook.com → Events Manager → Connect Data Source
+     ════════════════════════════════════════════════════════════ -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- END META PIXEL -->
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f5f3ee;
+    --cream: #ede9e0;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --teal: #1a7f74;
+    --teal-dark: #0f5c53;
+    --teal-light: #2aada0;
+    --white: #ffffff;
+    --grey: #6b6b6b;
+    --light-grey: #d4d0c8;
+    --card-bg: rgba(255,255,255,0.6);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 6%;
+    background: rgba(245,243,238,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+
+  .logo {
+    display: flex; align-items: center; gap: 0.7rem;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--teal), var(--gold));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .logo-mark::after {
+    content: '';
+    position: absolute;
+    width: 22px; height: 3px;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 -7px 0 white, 0 7px 0 rgba(255,255,255,0.5);
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .logo-text span { color: var(--teal); }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; color: var(--grey);
+    font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--gold);
+    transition: width 0.25s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--teal);
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--teal-dark) !important; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 6%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 80% 50%, rgba(26,127,116,0.09) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(201,168,76,0.07) 0%, transparent 60%);
+  }
+
+  .hero-grid-lines {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(26,127,116,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,127,116,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 760px;
+    animation: heroFade 1s ease-out both;
+  }
+
+  @keyframes heroFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: #9a7830;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    animation: heroFade 1s 0.1s ease-out both;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.4); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    animation: heroFade 1s 0.2s ease-out both;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--teal);
+    position: relative;
+  }
+  h1 em::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    border-radius: 2px;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--grey);
+    line-height: 1.75;
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    animation: heroFade 1s 0.3s ease-out both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: heroFade 1s 0.4s ease-out both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(26,127,116,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(26,127,116,0.4); }
+  .btn-primary svg { width: 16px; height: 16px; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--light-grey);
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+
+  .hero-stats {
+    position: absolute; right: 6%; bottom: 10%;
+    display: flex; flex-direction: column; gap: 1rem;
+    animation: heroFade 1s 0.6s ease-out both;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 1rem 1.4rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    text-align: right;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--teal);
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--grey);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 7rem 6%; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--grey);
+    line-height: 1.8;
+    max-width: 540px;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--ink); }
+  #services .section-tag { color: var(--gold); }
+  #services h2 { color: var(--white); }
+  #services .section-desc { color: rgba(255,255,255,0.5); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    margin-top: 4rem;
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .service-card {
+    background: #111118;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .service-card:hover { background: #15151f; }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    position: relative;
+  }
+  .icon-teal { background: rgba(26,127,116,0.15); }
+  .icon-gold { background: rgba(201,168,76,0.12); }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+  }
+  .service-card p {
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .service-features {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .service-features li {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .service-features li::before {
+    content: '';
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--teal-light);
+    flex-shrink: 0;
+  }
+
+  .service-tag-large {
+    position: absolute;
+    bottom: 2rem; right: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── HOW IT WORKS ── */
+  #process { background: var(--cream); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 14%; right: 14%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal));
+    opacity: 0.3;
+  }
+
+  .step {
+    text-align: center;
+    padding: 2rem 1.2rem;
+  }
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--teal);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 16px rgba(26,127,116,0.15);
+  }
+  .step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+  .step p { font-size: 0.9rem; color: var(--grey); line-height: 1.7; }
+
+  /* ── WHY US ── */
+  #why {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    padding: 7rem 6%;
+  }
+
+  .why-visual {
+    position: relative;
+    height: 460px;
+  }
+
+  .why-card {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 1.8rem;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .why-card-main {
+    width: 300px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+  }
+  .why-card-main .big-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .why-card-main p { color: var(--grey); font-size: 0.9rem; }
+
+  .why-card-a {
+    width: 180px;
+    top: 5%; left: 0;
+    transform: rotate(-3deg);
+  }
+  .why-card-b {
+    width: 200px;
+    bottom: 5%; right: 0;
+    transform: rotate(2deg);
+  }
+  .why-card-small-label {
+    font-size: 0.75rem; color: var(--grey); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem;
+  }
+  .why-card-small-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; color: var(--ink);
+  }
+
+  .why-accent-circle {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px dashed rgba(26,127,116,0.15);
+    z-index: 0;
+  }
+  .why-accent-circle-2 {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 440px; height: 440px;
+    border-radius: 50%;
+    border: 1px dashed rgba(201,168,76,0.1);
+    z-index: 0;
+  }
+
+  .why-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 1.4rem;
+    margin-top: 2.5rem;
+  }
+  .why-list li {
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .why-check {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: rgba(26,127,116,0.1);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+    color: var(--teal);
+    font-size: 0.85rem;
+  }
+  .why-list li div strong { display: block; margin-bottom: 0.2rem; font-size: 0.95rem; }
+  .why-list li div span { font-size: 0.88rem; color: var(--grey); line-height: 1.6; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--cream); text-align: center; }
+  #testimonials h2 { margin: 0 auto 1rem; }
+  #testimonials .section-desc { margin: 0 auto 4rem; }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .testi-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+
+  .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
+  .testi-text { font-size: 0.92rem; color: var(--grey); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; color: white;
+    flex-shrink: 0;
+  }
+  .av-teal { background: linear-gradient(135deg, var(--teal), var(--teal-light)); }
+  .av-gold { background: linear-gradient(135deg, var(--gold), #a07828); }
+  .av-ink { background: linear-gradient(135deg, #2d2d40, var(--teal-dark)); }
+  .testi-name { font-weight: 600; font-size: 0.88rem; }
+  .testi-role { font-size: 0.78rem; color: var(--grey); }
+
+  /* ── CTA ── */
+  #cta {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--ink) 100%);
+    text-align: center;
+    padding: 7rem 6%;
+    position: relative;
+    overflow: hidden;
+  }
+  #cta::before {
+    content: '';
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  #cta h2 { color: white; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1rem; position: relative; }
+  #cta p { color: rgba(255,255,255,0.55); font-size: 1.05rem; margin-bottom: 2.5rem; position: relative; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), #a07828);
+    color: var(--ink);
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.4); }
+  .btn-outline-white {
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline-white:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 4rem 6% 2rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 2rem;
+  }
+  .footer-brand .logo-text { color: white; font-size: 1.1rem; }
+  .footer-brand p {
+    font-size: 0.88rem; line-height: 1.7; margin-top: 0.8rem;
+    max-width: 220px;
+  }
+  .footer-col h4 {
+    color: rgba(255,255,255,0.7); font-size: 0.8rem;
+    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .footer-col a {
+    display: block; color: rgba(255,255,255,0.35);
+    text-decoration: none; font-size: 0.88rem;
+    margin-bottom: 0.7rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.82rem;
+  }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ── FLOATING PHONE WIDGET ── */
+  .phone-widget {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+  }
+  .phone-btn {
+    width: 58px; height: 58px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    border-radius: 50%;
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(26,127,116,0.4);
+    font-size: 1.4rem;
+    transition: transform 0.2s;
+    position: relative;
+  }
+  .phone-btn:hover { transform: scale(1.08); }
+  .phone-btn::before {
+    content: '';
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(26,127,116,0.3);
+    animation: ringPulse 2s infinite;
+  }
+  @keyframes ringPulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+  .phone-label {
+    position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
+    background: var(--ink);
+    color: white; font-size: 0.8rem; font-weight: 500;
+    white-space: nowrap; padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .phone-widget:hover .phone-label { opacity: 1; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── INDUSTRIES ── */
+  .industry-card {
+    background: white;
+    border: 1.5px solid rgba(0,0,0,0.06);
+    border-radius: 14px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    font-size: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .industry-card span {
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--ink); line-height: 1.3;
+  }
+  .industry-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(26,127,116,0.12);
+    border-color: var(--teal);
+  }
+
+  /* ── FAQ ── */
+  .faq-item {
+    background: white;
+    border: 1.5px solid rgba(0,0,0,0.07);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .faq-item[open] { border-color: var(--teal); }
+  .faq-item summary {
+    padding: 1.2rem 1.5rem;
+    font-weight: 600; font-size: 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--ink);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+'; font-size: 1.3rem; color: var(--teal);
+    font-weight: 300; flex-shrink: 0; margin-left: 1rem;
+    transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p {
+    padding: 0 1.5rem 1.2rem;
+    font-size: 0.9rem; color: var(--grey); line-height: 1.75;
+  }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--paper); text-align: center; }
+  #pricing h2 { margin: 0 auto 0.5rem; }
+  #pricing .section-desc { margin: 0 auto 1rem; }
+
+  .pricing-toggle {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    background: var(--cream); border-radius: 100px;
+    padding: 0.4rem 0.5rem; margin: 1.5rem auto 3.5rem;
+    border: 1px solid var(--light-grey);
+  }
+  .toggle-btn {
+    padding: 0.45rem 1.3rem; border-radius: 100px; border: none;
+    background: transparent; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    font-size: 0.88rem; color: var(--grey); transition: all 0.2s;
+  }
+  .toggle-btn.active {
+    background: white; color: var(--ink);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+  .save-badge {
+    background: rgba(26,127,116,0.12); color: var(--teal);
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+    align-items: start;
+  }
+
+  .price-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    border: 1.5px solid rgba(0,0,0,0.07);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+
+  .price-card.featured {
+    background: linear-gradient(160deg, var(--teal-dark) 0%, var(--ink) 100%);
+    border-color: transparent;
+    box-shadow: 0 8px 48px rgba(26,127,116,0.35);
+  }
+  .price-card.featured * { color: rgba(255,255,255,0.85) !important; }
+  .price-card.featured .price-amount { color: white !important; }
+  .price-card.featured .price-tag-label { color: rgba(255,255,255,0.6) !important; }
+  .price-card.featured .price-feature::before { background: var(--teal-light) !important; }
+  .price-card.featured .price-btn {
+    background: linear-gradient(135deg, var(--gold), #a07828) !important;
+    color: var(--ink) !important;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.4) !important;
+  }
+  .price-card.featured .price-badge { background: rgba(201,168,76,0.25); color: var(--gold-light) !important; }
+
+  .price-badge {
+    display: inline-block;
+    background: rgba(26,127,116,0.1);
+    color: var(--teal) !important;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.3rem 0.8rem; border-radius: 100px;
+    margin-bottom: 1.2rem;
+  }
+  .price-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.4rem;
+  }
+  .price-card-desc {
+    font-size: 0.85rem; color: var(--grey);
+    line-height: 1.6; margin-bottom: 1.5rem;
+    min-height: 50px;
+  }
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem; font-weight: 900;
+    color: var(--ink); line-height: 1;
+  }
+  .price-amount sup { font-size: 1.3rem; vertical-align: top; margin-top: 0.4rem; font-weight: 600; }
+  .price-tag-label {
+    font-size: 0.82rem; color: var(--grey);
+    margin-bottom: 1.8rem; display: block; margin-top: 0.3rem;
+  }
+  .price-divider {
+    height: 1px; background: rgba(0,0,0,0.06);
+    margin-bottom: 1.4rem;
+  }
+  .price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
+  .price-feature {
+    font-size: 0.85rem; color: var(--ink);
+    display: flex; align-items: flex-start; gap: 0.6rem; line-height: 1.5;
+  }
+  .price-feature::before {
+    content: '';
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0; margin-top: 0.45rem;
+  }
+  .price-btn {
+    display: block; width: 100%;
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    color: white !important; text-decoration: none;
+    padding: 0.8rem 1.5rem; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem; text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(26,127,116,0.25);
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  }
+  .price-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,127,116,0.4); }
+  .price-btn.outline {
+    background: transparent;
+    color: var(--teal) !important;
+    border: 1.5px solid var(--teal);
+    box-shadow: none;
+  }
+  .price-btn.outline:hover { background: rgba(26,127,116,0.05); }
+
+  .bundle-strip {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(26,127,116,0.08));
+    border: 1.5px solid rgba(201,168,76,0.3);
+    border-radius: 16px;
+    padding: 1.8rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .bundle-strip-text h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.4rem;
+    font-weight: 700; margin-bottom: 0.3rem;
+  }
+  .bundle-strip-text p { color: var(--grey); font-size: 0.9rem; }
+  .bundle-price { text-align: right; }
+  .bundle-price .big { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--teal); }
+  .bundle-price .small { font-size: 0.8rem; color: var(--grey); }
+
+  /* ── META ADS SECTION ── */
+  #meta-ads {
+    background: var(--ink);
+    padding: 5rem 6%;
+    text-align: center;
+  }
+  #meta-ads .section-tag { color: var(--gold); }
+  #meta-ads h2 { color: white; margin: 0 auto 1rem; }
+  #meta-ads p { color: rgba(255,255,255,0.5); max-width: 540px; margin: 0 auto 3rem; }
+
+  .ads-steps-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    margin-top: 0; text-align: left;
+  }
+  .ads-step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: background 0.2s;
+  }
+  .ads-step-card:hover { background: rgba(255,255,255,0.07); }
+  .ads-step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem; font-weight: 700; color: var(--gold);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.8rem;
+  }
+  .ads-step-card h3 { color: white; font-size: 1.05rem; margin-bottom: 0.6rem; }
+  .ads-step-card p { color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.7; }
+  .ads-step-card a { color: var(--gold); text-decoration: underline; font-size: 0.85rem; }
+
+  /* ── RESPONSIVE ADDITIONS ── */
+  @media (max-width: 1100px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    #why { grid-template-columns: 1fr; }
+    .why-visual { display: none; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .hero-stats { display: none; }
+    .nav-links { display: none; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .ads-steps-grid { grid-template-columns: 1fr; }
+    .bundle-strip { flex-direction: column; text-align: center; }
+    .bundle-price { text-align: center; }
+    #results-compare > div:last-child { grid-template-columns: 1fr !important; }
+    #industries > div:last-child { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  /* ── SPLASH SCREEN ── */
+  #splash {
+    position: fixed; inset: 0; z-index: 99999;
+    background: #0a0a0f;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  #splash.hide {
+    animation: splashOut 0.9s cubic-bezier(0.76,0,0.24,1) forwards;
+  }
+  @keyframes splashOut {
+    0%   { opacity: 1; transform: scale(1); }
+    60%  { opacity: 1; transform: scale(1.04); }
+    100% { opacity: 0; transform: scale(1.08); visibility: hidden; }
+  }
+
+  #splash-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px; height: 300px;
+    background: radial-gradient(ellipse, rgba(26,127,116,0.18) 0%, rgba(201,168,76,0.08) 50%, transparent 75%);
+    border-radius: 50%;
+    animation: glowPulse 2.5s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.7; }
+    50%      { transform: translate(-50%,-50%) scale(1.15); opacity: 1; }
+  }
+
+  #splash-logo-wrap {
+    position: relative; z-index: 1; text-align: center;
+  }
+
+  #splash-svg {
+    width: min(460px, 90vw);
+    overflow: visible;
+    filter: drop-shadow(0 0 18px rgba(26,127,116,0.45));
+  }
+
+  /* Each stroke path — hidden until animated */
+  .sig-stroke {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+  }
+  #sig-v  { stroke: #2aada0; stroke-width: 5; animation: drawStroke 0.75s ease-out forwards 0.3s; }
+  #sig-amp{ stroke: url(#sigGrad); stroke-width: 4.5; animation: drawStroke 0.7s ease-out forwards 1.0s; }
+  #sig-m  { stroke: #c9a84c; stroke-width: 5; animation: drawStroke 0.85s ease-out forwards 1.65s; }
+  #sig-dot1 { stroke: #2aada0; stroke-width: 5; stroke-dasharray: 80; stroke-dashoffset: 80; animation: drawStroke 0.2s ease-out forwards 2.4s; }
+  #sig-dot2 { stroke: #c9a84c; stroke-width: 5; stroke-dasharray: 80; stroke-dashoffset: 80; animation: drawStroke 0.2s ease-out forwards 2.5s; }
+  #sig-line { stroke: url(#lineGrad); stroke-width: 2.5; stroke-linecap: round; fill: none;
+    stroke-dasharray: 1200; stroke-dashoffset: 1200;
+    animation: drawStroke 0.65s cubic-bezier(0.22,1,0.36,1) forwards 2.6s; }
+
+  @keyframes drawStroke {
+    to { stroke-dashoffset: 0; }
+  }
+
+  #splash-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+    font-weight: 300;
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: transparent;
+    margin-top: 0.5rem;
+    animation: subFadeIn 0.7s ease forwards 3.0s;
+  }
+  @keyframes subFadeIn {
+    from { color: transparent; letter-spacing: 0.55em; }
+    to   { color: rgba(255,255,255,0.55); letter-spacing: 0.42em; }
+  }
+
+  #splash-tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: transparent;
+    margin-top: 0.35rem;
+    animation: subFadeIn 0.5s ease forwards 3.3s;
+  }
+
+  #splash-particles {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  }
+  .spark {
+    position: absolute;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkFloat var(--dur, 3s) ease-in-out var(--delay, 0s) infinite;
+  }
+  @keyframes sparkFloat {
+    0%   { opacity: 0; transform: translateY(0) scale(0); }
+    20%  { opacity: 0.9; }
+    80%  { opacity: 0.4; }
+    100% { opacity: 0; transform: translateY(-120px) scale(1.5); }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ══ SPLASH / SIGNATURE ANIMATION ══ -->
+<div id="splash">
+  <div id="splash-glow"></div>
+  <div id="splash-particles" aria-hidden="true"></div>
+
+  <div id="splash-logo-wrap">
+    <svg id="splash-svg" viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sigGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#2aada0"/>
+          <stop offset="100%" stop-color="#c9a84c"/>
+        </linearGradient>
+        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="#1a7f74" stop-opacity="0"/>
+          <stop offset="30%"  stop-color="#c9a84c"/>
+          <stop offset="70%"  stop-color="#1a7f74"/>
+          <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <!-- V — two diagonal strokes meeting at the bottom -->
+      <path id="sig-v" class="sig-stroke"
+        d="M 28,28 C 32,28 42,60 56,100 C 65,128 72,148 80,155
+           C 88,148 95,128 104,100 C 118,60 128,28 132,28"/>
+
+      <!-- & — flowing cursive ampersand -->
+      <path id="sig-amp" class="sig-stroke"
+        d="M 183,62 C 183,42 168,30 155,36 C 142,42 140,58 148,70
+           C 155,80 168,86 175,96
+           L 148,124 C 138,136 138,152 152,158
+           C 166,164 182,154 183,140
+           C 184,126 168,115 158,106
+           L 175,96"/>
+
+      <!-- M — four connected strokes, slightly calligraphic -->
+      <path id="sig-m" class="sig-stroke"
+        d="M 210,155 L 210,32
+           C 220,50 235,78 250,98
+           C 265,78 280,50 290,32
+           L 290,155"/>
+
+      <!-- Accent dots either side of & -->
+      <circle id="sig-dot1" class="sig-stroke" cx="140" cy="42" r="4" stroke-width="4"/>
+      <circle id="sig-dot2" class="sig-stroke" cx="192" cy="148" r="4" stroke-width="4"/>
+
+      <!-- Underline swoosh -->
+      <path id="sig-line"
+        d="M 15,170 C 80,178 200,180 310,170 Q 370,163 430,171"/>
+    </svg>
+
+    <div id="splash-subtitle">AI Agency</div>
+    <div id="splash-tagline">Victoria &amp; Mason</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-mark"></div>
+    <span class="logo-text">V&amp;M <span>AI</span> Agency</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Results</a></li>
+    <li><a href="#cta" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      10+ Hours/Week Saved — Guaranteed or You Don't Pay
+    </div>
+    <h1>Get 15+ Hours Back<br>Every Week With <em>AI</em></h1>
+    <p class="hero-sub">V&M AI Agency builds and manages AI automations that handle your busywork — lead follow-up, scheduling, admin, reporting — so you can focus on growing your business.</p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        Get a Free AI Audit
+      </a>
+      <a href="#pricing" class="btn-secondary">
+        See Pricing
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Hrs/Week Saved</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">&lt;60s</div>
+      <div class="stat-label">AI Lead Response Time</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">AI Receptionist Coverage</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="reveal">
+    <div class="section-tag">What We Do</div>
+    <h2>Two Powerful Services.<br>One Clear Path to Growth.</h2>
+    <p class="section-desc">We combine cutting-edge AI with expert craftsmanship to modernize how your business communicates and presents itself.</p>
+  </div>
+
+  <div class="services-grid reveal">
+    <!-- AI Receptionist -->
+    <div class="service-card">
+      <div class="service-icon icon-teal">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.3a16 16 0 0 0 5.72 5.72l.92-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h3>AI Call Receptionist</h3>
+      <p>Never miss a lead again. Our AI receptionist answers every call, qualifies prospects, books appointments, and handles FAQs — with a natural, professional voice your customers will trust.</p>
+      <ul class="service-features">
+        <li>Answers calls 24/7, 365 days a year</li>
+        <li>Natural conversational AI, not robotic scripts</li>
+        <li>Appointment scheduling & calendar sync</li>
+        <li>Lead qualification & call routing</li>
+        <li>Call summaries delivered to your inbox</li>
+        <li>Custom voice & personality for your brand</li>
+      </ul>
+      <div class="service-tag-large">01</div>
+    </div>
+
+    <!-- Website Building -->
+    <div class="service-card">
+      <div class="service-icon icon-gold">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3>Custom Website Building</h3>
+      <p>Your website is your most powerful sales tool. We build fast, beautiful, conversion-focused websites that represent your brand with authority — no templates, no compromises.</p>
+      <ul class="service-features">
+        <li>Custom design tailored to your brand</li>
+        <li>Mobile-first, blazing-fast performance</li>
+        <li>SEO-ready from day one</li>
+        <li>Integrated contact forms & lead capture</li>
+        <li>AI chat & booking widget options</li>
+        <li>Ongoing support & updates available</li>
+      </ul>
+      <div class="service-tag-large">02</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div style="text-align:center" class="reveal">
+    <div class="section-tag">Simple Process</div>
+    <h2>Up & Running in Days, Not Months</h2>
+    <p class="section-desc" style="margin: 0 auto;">We've built a streamlined onboarding process so you can start capturing leads and looking professional as fast as possible.</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="step reveal reveal-delay-1">
+      <div class="step-num">01</div>
+      <h3>Discovery Call</h3>
+      <p>We learn your business, your goals, and what you need most — AI receptionist, website, or both.</p>
+    </div>
+    <div class="step reveal reveal-delay-2">
+      <div class="step-num">02</div>
+      <h3>Custom Build</h3>
+      <p>Our team configures your AI voice agent and/or designs your website to match your exact brand.</p>
+    </div>
+    <div class="step reveal reveal-delay-3">
+      <div class="step-num">03</div>
+      <h3>Review & Refine</h3>
+      <p>You test everything and provide feedback. We refine until it's exactly right — no rush.</p>
+    </div>
+    <div class="step reveal reveal-delay-3">
+      <div class="step-num">04</div>
+      <h3>Go Live</h3>
+      <p>Flip the switch. Your AI starts answering calls and your new website goes live, driving results immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-visual reveal">
+    <div class="why-accent-circle"></div>
+    <div class="why-accent-circle-2"></div>
+    <div class="why-card why-card-a">
+      <div class="why-card-small-label">Missed Calls Prevented</div>
+      <div class="why-card-small-val">∞ Zero</div>
+    </div>
+    <div class="why-card why-card-main">
+      <div class="big-num">3×</div>
+      <p>Average increase in booked appointments after switching to our AI receptionist</p>
+    </div>
+    <div class="why-card why-card-b">
+      <div class="why-card-small-label">Avg. Page Load</div>
+      <div class="why-card-small-val">&lt; 1.2s</div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="section-tag">Why V&M AI Agency</div>
+    <h2>We're Not an Agency.<br>We're Your Growth Partner.</h2>
+    <p class="section-desc">We don't do cookie-cutter. Every solution is built around your business, your customers, and your goals.</p>
+
+    <ul class="why-list">
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <strong>Human-quality AI voices</strong>
+          <span>Our AI receptionists sound natural, warm, and professional — not robotic. Your customers won't even know it's AI unless you tell them.</span>
+        </div>
+      </li>
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <strong>Fully custom, zero templates</strong>
+          <span>Every website we build is designed from scratch. No Wix, no Squarespace — real code, real design, real results.</span>
+        </div>
+      </li>
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <strong>White-glove onboarding</strong>
+          <span>We handle everything — setup, training, integrations. You just show up to the launch call.</span>
+        </div>
+      </li>
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <strong>Transparent pricing, no surprises</strong>
+          <span>Flat, predictable pricing. No hidden fees, no upsells you don't need. Just clear value.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <div class="section-tag">Client Results</div>
+    <h2>Real Businesses. Real Impact.</h2>
+    <p class="section-desc">See what business owners are saying after switching to V&M AI Agency.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testi-card reveal reveal-delay-1">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"V&M identified $180K in annual savings we didn't know existed. The audit alone was worth 10x what we paid."</p>
+      <div class="testi-author">
+        <div class="testi-avatar av-teal">EK</div>
+        <div>
+          <div class="testi-name">Dr. Elena K.</div>
+          <div class="testi-role">Owner, Private Dental Practice — Austin, TX</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal reveal-delay-2">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I was skeptical about AI, but V&M made it so simple. Our lead response time went from 4 hours to under 60 seconds."</p>
+      <div class="testi-author">
+        <div class="testi-avatar av-gold">JL</div>
+        <div>
+          <div class="testi-name">Jennifer L.</div>
+          <div class="testi-role">Managing Partner, Boutique Law Firm — Chicago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal reveal-delay-3">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"We automated member check-ins, class reminders, and lead follow-up. Freed up 20 hours a week and retention jumped 18% in two months."</p>
+      <div class="testi-author">
+        <div class="testi-avatar av-ink">RT</div>
+        <div>
+          <div class="testi-name">Coach Ryan T.</div>
+          <div class="testi-role">Owner, CrossFit Gym — Denver, CO</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="results-compare" style="background:var(--cream);padding:6rem 6%;">
+  <div style="text-align:center" class="reveal">
+    <div class="section-tag">The Numbers</div>
+    <h2>Same Business. Different Operating System.</h2>
+    <p class="section-desc" style="margin:0 auto 4rem;">See what changes when AI runs the busywork for you.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:860px;margin:0 auto" class="reveal">
+    <!-- Today -->
+    <div style="background:white;border-radius:20px;padding:2.5rem;border:1.5px solid rgba(0,0,0,0.07);box-shadow:0 4px 24px rgba(0,0,0,0.05)">
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin-bottom:1.5rem">Today</div>
+      <div style="display:flex;flex-direction:column;gap:1.2rem">
+        <div><div style="font-size:0.78rem;color:var(--grey);font-weight:600;margin-bottom:0.2rem">Weekly Admin Time</div><div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#c0392b">15+ hrs/week</div></div>
+        <div><div style="font-size:0.78rem;color:var(--grey);font-weight:600;margin-bottom:0.2rem">Annual Wasted Labor</div><div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#c0392b">$85K/year</div></div>
+        <div><div style="font-size:0.78rem;color:var(--grey);font-weight:600;margin-bottom:0.2rem">Lead Response Time</div><div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#c0392b">4+ hours</div></div>
+        <div><div style="font-size:0.78rem;color:var(--grey);font-weight:600;margin-bottom:0.2rem">Customer Follow-Up Rate</div><div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#c0392b">30%</div></div>
+      </div>
+    </div>
+    <!-- With V&M -->
+    <div style="background:linear-gradient(160deg,var(--teal-dark),var(--ink));border-radius:20px;padding:2.5rem;box-shadow:0 8px 48px rgba(26,127,116,0.3)">
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem">With V&M AI Agency</div>
+      <div style="display:flex;flex-direction:column;gap:1.2rem">
+        <div><div style="font-size:0.78rem;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:0.2rem">Weekly Admin Time</div><div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--teal-light)">2 hrs/week</div></div>
+        <div><div style="font-size:0.78rem;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:0.2rem">Annual Automation Cost</div><div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--teal-light)">$12K/year</div></div>
+        <div><div style="font-size:0.78rem;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:0.2rem">Lead Response Time</div><div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--teal-light)">&lt;60 seconds</div></div>
+        <div><div style="font-size:0.78rem;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:0.2rem">Customer Follow-Up Rate</div><div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--teal-light)">95%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries" style="padding:6rem 6%;background:var(--paper)">
+  <div style="text-align:center" class="reveal">
+    <div class="section-tag">Industries</div>
+    <h2>Built for How You Operate</h2>
+    <p class="section-desc" style="margin:0 auto 3.5rem;">We've deployed AI automation across every major industry — we know your workflows before you explain them.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1000px;margin:0 auto" class="reveal">
+    <div class="industry-card">🏥<span>Healthcare</span></div>
+    <div class="industry-card">🔧<span>Home Services</span></div>
+    <div class="industry-card">⚖️<span>Legal</span></div>
+    <div class="industry-card">🏠<span>Real Estate</span></div>
+    <div class="industry-card">🍽️<span>Restaurants</span></div>
+    <div class="industry-card">💼<span>Professional Services</span></div>
+    <div class="industry-card">💪<span>Fitness</span></div>
+    <div class="industry-card">🛒<span>Retail</span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--cream);padding:6rem 6%;">
+  <div style="text-align:center" class="reveal">
+    <div class="section-tag">Common Questions</div>
+    <h2>Before You Decide,<br>Get Your Questions Answered</h2>
+  </div>
+  <div style="max-width:720px;margin:3rem auto 0;display:flex;flex-direction:column;gap:1rem" class="reveal">
+    <details class="faq-item">
+      <summary>What's included in the free AI audit?</summary>
+      <p>We analyze your business, surface your top 3 automation opportunities, estimate time/money saved, and give you a clear next-step plan. No call required. Delivered same day.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How fast will I see results?</summary>
+      <p>Most clients see an early win within days. A full single-workflow automation typically goes live in 1–2 weeks depending on scope. Websites are delivered in ~72 hours.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need to learn new software?</summary>
+      <p>No. We wire everything into tools you already use — your inbox, your calendar, your CRM. We train your team in a single session. You approve with one tap.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What is the 10+ hours/week guarantee?</summary>
+      <p>We guarantee our AI audit finds at least 10 hours per week in savings and 3+ automation wins for your business. If it doesn't, you pay nothing. Zero risk.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do you offer ongoing support?</summary>
+      <p>Yes — our monthly AI Receptionist and automation plans include ongoing monitoring, optimization, and updates. AI tools improve every month — we make sure your systems keep up.</p>
+    </details>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="reveal">
+    <div class="section-tag">Simple Pricing</div>
+    <h2>Transparent Pricing.<br>Real Returns.</h2>
+    <p class="section-desc">No hidden fees, no surprises. Pick the services that fit your goals and start growing today.</p>
+  </div>
+
+  <div class="pricing-grid reveal">
+
+    <!-- Website -->
+    <div class="price-card">
+      <span class="price-badge">One-Time</span>
+      <div class="price-card-name">Custom Website</div>
+      <div class="price-card-desc">A blazing-fast, conversion-ready website built from scratch for your brand.</div>
+      <div class="price-amount"><sup>$</sup>500</div>
+      <span class="price-tag-label">one-time payment</span>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li class="price-feature">Custom design — no templates</li>
+        <li class="price-feature">Mobile-first, SEO-ready</li>
+        <li class="price-feature">Contact forms & lead capture</li>
+        <li class="price-feature">AI chat widget integration</li>
+        <li class="price-feature">Delivered in ~72 hours</li>
+        <li class="price-feature">2 revision rounds included</li>
+      </ul>
+      <!-- STRIPE: Replace href with your Stripe Payment Link for $500 one-time product -->
+      <a href="https://buy.stripe.com/YOUR_WEBSITE_LINK" class="price-btn outline" onclick="trackPurchase('website_500')">Get My Website →</a>
+    </div>
+
+    <!-- AI Receptionist — FEATURED -->
+    <div class="price-card featured">
+      <span class="price-badge">Most Popular</span>
+      <div class="price-card-name">AI Receptionist</div>
+      <div class="price-card-desc">Your 24/7 AI phone agent — books appointments, answers questions, captures every lead.</div>
+      <div class="price-amount"><sup>$</sup>1,000</div>
+      <span class="price-tag-label">per month</span>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li class="price-feature">24/7 AI call answering</li>
+        <li class="price-feature">Natural voice — not robotic</li>
+        <li class="price-feature">Appointment booking & calendar sync</li>
+        <li class="price-feature">Lead qualification & routing</li>
+        <li class="price-feature">Call summaries to your inbox</li>
+        <li class="price-feature">Custom voice & brand personality</li>
+      </ul>
+      <!-- STRIPE: Replace href with your Stripe Payment Link for $1,000/mo subscription -->
+      <a href="https://buy.stripe.com/YOUR_RECEPTIONIST_LINK" class="price-btn" onclick="trackPurchase('receptionist_1000')">Start Answering Calls →</a>
+    </div>
+
+    <!-- AI Chat Widget -->
+    <div class="price-card">
+      <span class="price-badge">Monthly</span>
+      <div class="price-card-name">AI Chat Widget</div>
+      <div class="price-card-desc">Smart live chat on your website — qualifies leads and books consults automatically.</div>
+      <div class="price-amount"><sup>$</sup>400</div>
+      <span class="price-tag-label">per month</span>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li class="price-feature">AI-powered website chat</li>
+        <li class="price-feature">Lead qualification flows</li>
+        <li class="price-feature">Direct calendar booking</li>
+        <li class="price-feature">CRM & email integrations</li>
+        <li class="price-feature">Branded chat widget design</li>
+        <li class="price-feature">Weekly performance reports</li>
+      </ul>
+      <!-- STRIPE: Replace href with your Stripe Payment Link for $400/mo subscription -->
+      <a href="https://buy.stripe.com/YOUR_CHAT_LINK" class="price-btn outline" onclick="trackPurchase('chat_400')">Add Chat to My Site →</a>
+    </div>
+
+    <!-- AI Lead Follow-Up -->
+    <div class="price-card">
+      <span class="price-badge">Monthly</span>
+      <div class="price-card-name">AI Lead Follow-Up</div>
+      <div class="price-card-desc">Automated SMS & email sequences that re-engage cold leads and close more deals.</div>
+      <div class="price-amount"><sup>$</sup>500</div>
+      <span class="price-tag-label">per month</span>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li class="price-feature">Automated SMS follow-ups</li>
+        <li class="price-feature">AI-personalized email sequences</li>
+        <li class="price-feature">Re-engagement campaigns</li>
+        <li class="price-feature">No-show & reminder automations</li>
+        <li class="price-feature">Lead scoring & tagging</li>
+        <li class="price-feature">Monthly conversion report</li>
+      </ul>
+      <!-- STRIPE: Replace href with your Stripe Payment Link for $500/mo subscription -->
+      <a href="https://buy.stripe.com/YOUR_FOLLOWUP_LINK" class="price-btn outline" onclick="trackPurchase('followup_500')">Automate My Follow-Ups →</a>
+    </div>
+
+  </div>
+
+  <!-- Bundle Strip -->
+  <div class="bundle-strip reveal">
+    <div class="bundle-strip-text">
+      <h3>🔥 Full Growth Bundle — Best Value</h3>
+      <p>Website + AI Receptionist + Chat Widget + Lead Follow-Up. Everything you need to dominate your market.</p>
+    </div>
+    <div class="bundle-price">
+      <div class="big">$500 + $1,900<span style="font-size:1rem;color:var(--grey)">/mo</span></div>
+      <div class="small">All 3 AI services — best value for full automation</div>
+    </div>
+    <!-- STRIPE: Replace href with your Stripe Payment Link for the bundle -->
+    <a href="https://buy.stripe.com/YOUR_BUNDLE_LINK" class="price-btn" style="width:auto;padding:0.9rem 2rem;white-space:nowrap" onclick="trackPurchase('bundle')">Get the Bundle →</a>
+  </div>
+</section>
+
+<!-- META ADS SETUP GUIDE -->
+<section id="meta-ads">
+  <div class="reveal">
+    <div class="section-tag">Grow Faster</div>
+    <h2>Get Clients with Meta Ads</h2>
+    <p>Run Facebook & Instagram ads that send qualified leads directly to your AI receptionist or booking page. Here's exactly how to set it up.</p>
+  </div>
+
+  <div class="ads-steps-grid reveal">
+    <div class="ads-step-card">
+      <div class="ads-step-num">Step 01</div>
+      <h3>Create a Meta Business Account</h3>
+      <p>Go to <a href="https://business.facebook.com" target="_blank">business.facebook.com</a> → click "Create Account." Connect your Facebook Page. This is your ad headquarters.</p>
+    </div>
+    <div class="ads-step-card">
+      <div class="ads-step-num">Step 02</div>
+      <h3>Install the Meta Pixel</h3>
+      <p>In Business Manager → Events Manager → Connect Data Source → Web → Pixel. Copy your Pixel ID and paste it into the <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;color:var(--gold)">YOUR_PIXEL_ID</code> placeholder already in this site's code.</p>
+    </div>
+    <div class="ads-step-card">
+      <div class="ads-step-num">Step 03</div>
+      <h3>Create a Lead Campaign</h3>
+      <p>Ads Manager → Create → Campaign Objective: <strong style="color:white">Leads</strong> or <strong style="color:white">Conversions</strong>. Target: local area, ages 30–55, business owners. Budget: start at $20–$30/day.</p>
+    </div>
+    <div class="ads-step-card">
+      <div class="ads-step-num">Step 04</div>
+      <h3>Use an Instant Form or Landing Page</h3>
+      <p>Best approach: send traffic to this website's "Book a Call" section. Or use Meta's Instant Form — collect name, phone, email directly in the ad without leaving Facebook.</p>
+    </div>
+    <div class="ads-step-card">
+      <div class="ads-step-num">Step 05</div>
+      <h3>Set Up a Retargeting Audience</h3>
+      <p>Custom Audience → Website Visitors → Last 30 Days. Run retargeting ads to people who visited your site but didn't book. This is where your AI Follow-Up tool shines.</p>
+    </div>
+    <div class="ads-step-card">
+      <div class="ads-step-num">Step 06</div>
+      <h3>Track Conversions Back to Ads</h3>
+      <p>Add <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;color:var(--gold)">fbq('track', 'Lead')</code> to your "Thank You" page or Stripe success URL so Meta knows which ads are driving actual paying customers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="reveal">
+    <h2>Ready to Grow with V&M?</h2>
+    <p>You're 60 seconds away from seeing exactly where your business is leaking time and money. Run our free AI audit — no call, no credit card, no BS. <strong style="color:var(--gold-light)">If we can't find 10+ hours/week in savings, you don't pay.</strong></p>
+    <div class="cta-actions">
+      <a href="#" class="btn-gold">Get Your Free AI Audit</a>
+      <a href="mailto:hello@vmai.agency" class="btn-outline-white">Send Us a Message</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <span class="logo-text" style="color:white">V&amp;M <span style="color:var(--teal-light)">AI</span> Agency</span>
+      </div>
+      <p>Intelligent automation for forward-thinking businesses. AI receptionist & custom web design.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">AI Call Receptionist</a>
+      <a href="#">Website Building</a>
+      <a href="#">AI Chat Widget</a>
+      <a href="#">Lead Automation</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Case Studies</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 V&M AI Agency. All rights reserved.</span>
+    <span>Built with AI. Powered by results.</span>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="phone-widget">
+  <div class="phone-label">Talk to our AI</div>
+  <button class="phone-btn" onclick="alert('Demo call feature coming soon!')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.3a16 16 0 0 0 5.72 5.72l.92-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </button>
+</div>
+
+<script>
+  // ── SPLASH ──
+  (function() {
+    // Floating spark particles
+    const container = document.getElementById('splash-particles');
+    const colors = ['#2aada0','#c9a84c','#1a7f74','#e8c96a','rgba(255,255,255,0.6)'];
+    for (let i = 0; i < 28; i++) {
+      const s = document.createElement('div');
+      s.className = 'spark';
+      s.style.cssText = `
+        left:${10 + Math.random()*80}%;
+        top:${20 + Math.random()*60}%;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        --dur:${2.4 + Math.random()*2.2}s;
+        --delay:${0.5 + Math.random()*3.2}s;
+        width:${2+Math.random()*3}px;
+        height:${2+Math.random()*3}px;
+      `;
+      container.appendChild(s);
+    }
+
+    // Dismiss after signature + pause
+    const splash = document.getElementById('splash');
+    setTimeout(() => {
+      splash.classList.add('hide');
+      setTimeout(() => splash.remove(), 950);
+    }, 4000);
+
+    // Skip on click/tap
+    splash.addEventListener('click', () => {
+      splash.classList.add('hide');
+      setTimeout(() => splash.remove(), 950);
+    }, { once: true });
+  })();
+
+  // Scroll nav shadow
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Track purchases — fires Meta Pixel Lead/InitiateCheckout event
+  // Also fires when clicking any pricing button
+  function trackPurchase(productId) {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'InitiateCheckout', { content_name: productId });
+    }
+  }
+
+  // If returning from Stripe success URL with ?success=1, fire Purchase event
+  if (new URLSearchParams(window.location.search).get('success') === '1') {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Purchase', { currency: 'USD', value: 0 });
+    }
+  }
+</script>
+</body>
+</html>
